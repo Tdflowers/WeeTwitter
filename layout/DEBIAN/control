@@ -1,0 +1,9 @@
+Package: com.tylerflowers.weetwitter
+Name: WeeTwitter
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: Mobile Twitter in the notification center
+Maintainer: Tyler Flowers
+Author: Tyler Flowers
+Section: Tweaks
+Tag: role::hacker
