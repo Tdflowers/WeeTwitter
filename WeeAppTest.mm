@@ -39,7 +39,8 @@
         NSURL *url = [NSURL URLWithString:urlAddress];
         NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
         [webView loadRequest:requestObj];
-        [_view addSubview:webView];
+        webView.userInteractionEnabled = YES;
+        [_view addSubview:webView]; 
         [webView release];
         
     }
