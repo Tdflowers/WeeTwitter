@@ -30,9 +30,9 @@
 {
     if (_view == nil)
     {
-        _view = [[UIView alloc] initWithFrame:CGRectMake(2, 0, 316, 300.0)];
+        _view = [[UIView alloc] initWithFrame:CGRectMake(2, 0, 316, 330.0)];
         
-        CGRect webFrame = CGRectMake(0.0, 0.0, 316.0, 300.0);
+        CGRect webFrame = CGRectMake(0.0, 30.0, 316.0, 300.0);
         webView = [[UIWebView alloc] initWithFrame:webFrame];
         [webView setBackgroundColor:[UIColor clearColor]];
         NSString *urlAddress = @"http://m.twitter.com";
@@ -40,17 +40,35 @@
         NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
         [webView loadRequest:requestObj];
         webView.userInteractionEnabled = YES;
-        [_view addSubview:webView]; 
+        [_view addSubview:webView];
         [webView release];
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [button addTarget:self 
+                   action:@selector(goHome:)
+         forControlEvents:UIControlEventTouchUpInside];
+        [button setTitle:@"Go home" forState:UIControlStateNormal];
+        button.frame = CGRectMake(0.0, 00.0, 20.0, 30.0);
+        [_view addSubview:button];
+        [_view bringSubviewToFront:webView];
+        
+        [button release];
         
     }
     
     return _view;
 }
 
+- (void)goHome: (id)sender{
+    NSString *urlAddress = @"http://m.twitter.com";
+    NSURL *url = [NSURL URLWithString:urlAddress];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    [webView loadRequest:requestObj];
+}
+
 - (float)viewHeight
 {
-    return 300.0f;
+    return 325.0f;
 }
 
 
