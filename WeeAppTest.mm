@@ -67,6 +67,17 @@
     [webView loadRequest:requestObj];
 }
 
+- (id)launchURLForTapLocation:(CGPoint)point
+{
+	// Dirty hack to fix the "TouchHandler" bug.
+	NSLog(@"Here We Are. %@ - %@", NSStringFromCGPoint([[self view].window convertPoint:point fromView:[self view]]), NSStringFromCGPoint(point));
+	UIButton* btn=(UIButton*)[[self view].window hitTest:[[self view].window convertPoint:point fromView:[self view]] withEvent:nil];
+	if([btn respondsToSelector:@selector(sendActionsForControlEvents:)]){
+		[btn sendActionsForControlEvents: UIControlEventTouchUpInside];
+	}
+	return nil;
+}
+
 - (float)viewHeight
 {
     return 325.0f;
