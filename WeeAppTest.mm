@@ -1,8 +1,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <UIKit/UIView.h>
 #import "BBWeeAppController-Protocol.h"
 
-@interface WeeAppTestController : NSObject <BBWeeAppController>
+
+@interface WeeTwitterController : NSObject <BBWeeAppController>
 {
     UIView *_view;
     UIWebView *webView;
@@ -13,7 +15,7 @@
 
 @end
 
-@implementation WeeAppTestController
+@implementation WeeTwitterController
 
 + (void)initialize
 {
@@ -51,13 +53,12 @@
         button.frame = CGRectMake(0.0, 00.0, 20.0, 30.0);
         [_view addSubview:button];
         [_view bringSubviewToFront:webView];
-        
         [button release];
-        
-    }
-    
+
+    }    
     return _view;
 }
+
 
 - (void)goHome: (id)sender{
     NSString *urlAddress = @"http://m.twitter.com";
